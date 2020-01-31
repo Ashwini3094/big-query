@@ -1,0 +1,89 @@
+1. what is count of repository.has_issues in github_nested table?
+ using Count fucntion of SQL i have arrived at count of repository.has_issues.
+Query:
+SELECT COUNT(repository.has_issues)
+FROM `bigquery-public-data.samples.github_nested`
+Output:
+f0_
+2285206
+
+2.Inner join for repository.url from table github_timeline & github_nested?
+
+
+Query: SELECT T repository.url, T repository.created_at, T repository.description, N.public
+FROM `bigquery-public-data.samples.github_timeline` as T
+FROM `bigquery-public-data.samples.github_nested` as N
+ON  T repository.url,=N.repository.url
+Output:
+Syntax Error.
+
+3.what is the maximum weight of crypto_litecoin. blocks?
+Answer: using SQL MAX Function i had arrived at maximum value of crypto_litecoin.blocks
+Query:
+SELECT MAX(Weight)
+FROM `bigquery-public-data.crypto_litecoin.blocks`
+Output:
+f0_
+3993239
+
+4.what is minimum weight of crypto_litecoin.blocks?
+using MIN function of SQL i obtained minimum weight of crypro_litecoin.blocks.
+
+QUERY:SELECT MIN(weight)
+FROM `bigquery-public-data.crypto_litecoin.blocks`
+
+Output:
+f0_
+700
+
+5.sort in ascending order of size of crypto_litecoing.blocks?
+using ORDER BY function in SQL i have sorted the size of crypto_litecoin in ascending order.
+Query: SELECT * FROM `bigquery-public-data.crypto_litecoin.blocks` 
+ORDER BY size;
+OUTPUT:
+Row	hash	size	stripped_size	weight	number	version	merkle_root	timestamp	timestamp_month	nonce	bits	coinbase_param	transaction_count	
+1	
+69004162a97bcf126c2c181117cd6baf30ac3d92762d698ff26117814f3119bf
+175
+175
+700
+285342
+
+6.what is the sum of transaction_count in litecoin blocks?
+using SUM SQL function i have arrived at sum of transaction_counts of litecoins.
+QUERY:
+SELECT SUM(transaction_count)
+FROM `bigquery-public-data.crypto_litecoin.blocks`
+OUTPUT:
+f0_
+40553029
+
+7.what is the fdic_banks insitution name in alabama?
+ for this query i have combined 'WHERE','AND' function to find the name of the institution in state alabama
+QUERY:
+SELECT * FROM `bigquery-public-data.fdic_banks.institutions` 
+WHERE institution_name='River Bank & Trust' AND state_name='Alabama'
+OUTPUT:
+fdic_certificate_number	institution_name	state_name	fdic_id	docket	active	address	total_assets	bank_charter_class	change_code_1	change_code_2	change_code_3	change_code_4	change_code_5	change_code_6	change_code_7	change_code_8	change_code_9	change_code_10	change_code_11	change_code_12	change_code_13	change_code_14	change_code_15	occ_charter	chartering_agency	conservatorship	city	category_code	county_fips_code	county_name	established_date	last_updated	effective_date	end_effective_date	denovo_institute	total_deposits	equity_capital	fdic_geo_region	fdic_supervisory_region	fdic_supervisory_region_code	fed_reserve_district	fed_reserve_district_id	fed_reserve_unique_id	federal_charter	fdic_field_office	iba	inactive_flag	insurance_fund_membership	secondary_insurance_fund	deposit_insurance_date	credit_card_institution	bank_insurance_fund_member	insured_commercial_bank	deposit_insurance_fund_member	fdic_insured	saif_insured	insured_savings_institute	new_cert_number	oakar_institute	ots_region	last_structural_change	qbp_region	regulator	report_date	reporting_period_end_date	state_chartered	return_on_assets	roa_quarterly	roa_pretax	row_pretax_quarterly	return_on_equity	roe_quarterly	run_date	sasser_institute	law_sasser	state	state_fips_code	trade_name_1	trade_name_2	trade_name_3	trade_name_4	trade_name_5	trade_name_6	zip_code	occ_district	ultimate_cert_number	cfpb_supervisory_flag	cfpb_supervisory_start_date	cfpb_supervisory_end_date	offices_count	parent_fdic_cert	parent_parcert	high_holder_city	total_domestic_deposits	ffiec_call_report_filer	holding_company_flag	ag_lending_flag	ownership_type	top_holder	net_income	quarterly_net_income	office_count_domestic	office_count_foreign	office_count_us_territories	rssd_id	holding_company_state	interstate_branches	subchap_s_indicator	trust_powers_status	asset_concentration_hierarchy	primary_specialization	csa_name	csa_fips_code	csa_indicator	cbsa_name	cbsa_fips_code	cbsa_metro_flag	cbsa_micro_flag	cbsa_division_name	cbsa_division_fips_code	cbsa_division_flag
+58255	River Bank & Trust	Alabama	444616	0	true	2611 Legends Drive	1138955	NM	810															0	STATE	false	Prattville	21	01001	Autauga	2006-04-03	2019-11-05	2019-10-31		false	982900	137797	05	Atlanta	05	Atlanta	6	3437157	false	Montgomery	false	false	DIF		2006-04-03	false	false	true	true	true	false	false	0	false	Southeast	2019-11-05	2	FDIC	2019-09-30	2019-06-30	true	1.17	1.28	1.5	1.65	9.72	10.6	2020-01-17	false	false	AL	1							36066	5	58255	false			18	0	0	PRATTVILLE	982900	false	false	false	false	RIVER FINANCIAL CORPORATION	9717	3610	14	0	0	4422851	AL	false	false	0	4	Commercial Lending Specialization	"Montgomery-Selma-Alexander City, AL"	388	true	"Montgomery, AL"	33860	true	false			false
+
+8.list of data crytpto litecoin blocks greater than 256. 2) list of data crytpto litecoin blocks having 256 and 258
+ crypton litecoins blocks greater than 256 i have used WHERE function in SQL and for crpto blocks having 256 and 258 i have used WHERE and IN functions of SQL
+
+QUERY: SELECT * FROM `bigquery-public-data.crypto_litecoin.blocks` 
+WHERE Size > (256);
+
+SELECT * FROM `bigquery-public-data.crypto_litecoin.blocks`
+WHERE Size IN (256,258);
+
+OUTPUT:
+fdic_certificate_number	institution_name	state_name	fdic_id	docket	active	address	total_assets	bank_charter_class	change_code_1	change_code_2	change_code_3	change_code_4	change_code_5	change_code_6	change_code_7	change_code_8	change_code_9	change_code_10	change_code_11	change_code_12	change_code_13	change_code_14	change_code_15	occ_charter	chartering_agency	conservatorship	city	category_code	county_fips_code	county_name	established_date	last_updated	effective_date	end_effective_date	denovo_institute	total_deposits	equity_capital	fdic_geo_region	fdic_supervisory_region	fdic_supervisory_region_code	fed_reserve_district	fed_reserve_district_id	fed_reserve_unique_id	federal_charter	fdic_field_office	iba	inactive_flag	insurance_fund_membership	secondary_insurance_fund	deposit_insurance_date	credit_card_institution	bank_insurance_fund_member	insured_commercial_bank	deposit_insurance_fund_member	fdic_insured	saif_insured	insured_savings_institute	new_cert_number	oakar_institute	ots_region	last_structural_change	qbp_region	regulator	report_date	reporting_period_end_date	state_chartered	return_on_assets	roa_quarterly	roa_pretax	row_pretax_quarterly	return_on_equity	roe_quarterly	run_date	sasser_institute	law_sasser	state	state_fips_code	trade_name_1	trade_name_2	trade_name_3	trade_name_4	trade_name_5	trade_name_6	zip_code	occ_district	ultimate_cert_number	cfpb_supervisory_flag	cfpb_supervisory_start_date	cfpb_supervisory_end_date	offices_count	parent_fdic_cert	parent_parcert	high_holder_city	total_domestic_deposits	ffiec_call_report_filer	holding_company_flag	ag_lending_flag	ownership_type	top_holder	net_income	quarterly_net_income	office_count_domestic	office_count_foreign	office_count_us_territories	rssd_id	holding_company_state	interstate_branches	subchap_s_indicator	trust_powers_status	asset_concentration_hierarchy	primary_specialization	csa_name	csa_fips_code	csa_indicator	cbsa_name	cbsa_fips_code	cbsa_metro_flag	cbsa_micro_flag	cbsa_division_name	cbsa_division_fips_code	cbsa_division_flag
+58255	River Bank & Trust	Alabama	444616	0	true	2611 Legends Drive	1138955	NM	810															0	STATE	false	Prattville	21	01001	Autauga	2006-04-03	2019-11-05	2019-10-31		false	982900	137797	05	Atlanta	05	Atlanta	6	3437157	false	Montgomery	false	false	DIF		2006-04-03	false	false	true	true	true	false	false	0	false	Southeast	2019-11-05	2	FDIC	2019-09-30	2019-06-30	true	1.17	1.28	1.5	1.65	9.72	10.6	2020-01-17	false	false	AL	1							36066	5	58255	false			18	0	0	PRATTVILLE	982900	false	false	false	false	RIVER FINANCIAL CORPORATION	9717	3610	14	0	0	4422851	AL	false	false	0	4	Commercial Lending Specialization	"Montgomery-Selma-Alexander City, AL"	388	true	"Montgomery, AL"	33860	true	false			false
+
+
+
+
+
+
+
+
